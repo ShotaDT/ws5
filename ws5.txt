@@ -1,0 +1,2 @@
+Write a for loop on the bash shell that will write (redirect) the reviews of the top 1000 customers (with the most reviews) to separate files named as CUSTOMERS/custid.txt.
+$ for custid in $(cut -f 2 amazon_reviews_us_Books_v1_02.tsv |sort| uniq -c|sort -r|awk -F" " '{print $2}'|head -1000); do grep ${custid}  amazon_reviews_us_Books_v1_02.tsv > CUSTOMERS/${custid}.txt; done
